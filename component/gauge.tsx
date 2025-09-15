@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from "react";
-import { LyricsProp } from "@/lyrics";
+import { LyricsProp } from "@/app/data/lyrics";
 
 export default function Gauge({
   fullLyric,

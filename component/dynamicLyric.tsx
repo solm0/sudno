@@ -2,7 +2,13 @@ import { LyricsProp } from "@/app/data/lyrics";
 import clsx from "clsx";
 import { Fragment } from "react";
 
-export default function DynamicLyric({lyric}: {lyric: LyricsProp[]}) {
+export default function DynamicLyric({
+  lyric, current,
+}: {
+  lyric: LyricsProp[];
+  current: string | null;
+}) {
+  console.log('current from dynamicLyric', current)
   return (
     <div className="absolute w-[50rem] flex flex-col items-center text-center justify-center h-screen overflow-y-scroll pointer-events-none">{lyric.map(l => (
       <Fragment
@@ -15,9 +21,10 @@ export default function DynamicLyric({lyric}: {lyric: LyricsProp[]}) {
           >
             <p className={clsx(
               'bg-black text-white',
-              l.isFound ? 'opacity-100' : 'opacity-5'
+              l.isFound ? 'opacity-100' : 'opacity-5',
+              current === l.name && 'text-[#ffff9d]!'
             )}>{p.ru}</p>
-            {l.isFound && <p className="text-xs pt-1 bg-black text-white">{p.kr}</p>}
+            {l.isFound && <p className={clsx('text-xs pt-1 bg-black text-white', current === l.name && 'text-[#ffff9d]!')}>{p.kr}</p>}
           </div>
         ))}
       </Fragment>

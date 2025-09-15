@@ -8,7 +8,10 @@ export default function Modal({
   setLyric: (name: string | null) => void;
 }){
   return (
-    <div className="absolute w-96 h-72 z-10 bg-black border border-white flex flex-col items-center justify-between p-12">
+    <div
+      className="absolute w-96 h-72 z-10 bg-black border border-white flex flex-col items-center justify-between p-12"
+      onClick={() => setLyric(null)}
+    >
       <div className="relative w-72 h-auto grow flex flex-col text-center">
         {modalData.lyric.map(p => (
           <div

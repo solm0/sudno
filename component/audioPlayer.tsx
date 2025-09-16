@@ -38,12 +38,17 @@ export default function AudioPlayer({
     };
   }, [onTimeUpdate]);
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     const audio = audioRef.current;
     if (!audio) return;
+  
     if (audio.paused) {
-      audio.play();
-      setPlaying(true);
+      try {
+        await audio.play();
+        setPlaying(true);
+      } catch (err) {
+        alert("Safari에서 지원되지 않는 기능입니다😭");
+      }
     } else {
       audio.pause();
       setPlaying(false);

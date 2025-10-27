@@ -20,8 +20,8 @@ export default function AudioPlayer({
   const [current, setCurrent] = useState(0);
   const [muted, setMuted] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
-  // update current time + send up
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -63,20 +63,36 @@ export default function AudioPlayer({
   };
 
   return (
-    <div className="absolute mt-3 text-xs flex gap-2 items-center font-mono">
+    <>
       <audio ref={audioRef} src={src} preload="auto" />
 
-      <button onClick={togglePlay} className="underline underline-offset-4 hover:no-underline">
-        {playing ? "Pause" : "Play"}
-      </button>
+      {!hasStarted ? (
+        <div className="absolute bg-black w-full h-full top-0 left-0 flex items-center justify-center">
+          <button
+            onClick={() => {
+              togglePlay();
+              setHasStarted(true);
+            }}
+            className="underline underline-offset-4 hover:no-underline text-lg"
+          >
+            Play
+          </button>
+        </div>
+      ): (
+        <div className="absolute mt-3 text-xs flex gap-2 items-center font-mono">
+          <button onClick={togglePlay} className="underline underline-offset-4 hover:no-underline">
+            {playing ? "Pause" : "Play"}
+          </button>
 
-      <span>{formatTime(current)}</span>
-      <span>/</span>
-      <span>2:22</span>
+          <span>{formatTime(current)}</span>
+          <span>/</span>
+          <span>2:22</span>
 
-      <button onClick={toggleMute} className="underline underline-offset-4 hover:no-underline">
-        {muted ? "Unmute" : "Mute"}
-      </button>
-    </div>
+          <button onClick={toggleMute} className="underline underline-offset-4 hover:no-underline">
+            {muted ? "Unmute" : "Mute"}
+          </button>
+        </div>
+      )}
+    </>
   );
 }

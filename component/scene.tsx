@@ -67,7 +67,7 @@ export default function Scene({
           {/* Controls to move camera with mouse */}
           <OrbitControls
             minDistance={0}
-            maxDistance={1}
+            maxDistance={0.8}
           />
         </Suspense>
       </Canvas>

@@ -50,7 +50,7 @@ export default function Game() {
 
   // 가사 싱크 맞추기
   useEffect(() => {
-    console.log('currentTime', currentTime)
+    // console.log('currentTime', currentTime)
     const current = Lyrics.find(l => 
       l.time?.some(time =>
         (time?.start ?? 99) <= currentTime && (time?.end ?? 0) >= currentTime
@@ -58,7 +58,7 @@ export default function Game() {
     );
     if (current) {
       setTimeLyric(current.name);
-      console.log('timeLyric', timeLyric)
+      // console.log('timeLyric', timeLyric)
     } else {
       setTimeLyric(null)
     }
@@ -66,7 +66,7 @@ export default function Game() {
 
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <main className={`relative transition-[width] duration-300 ${isEnd ? 'w-full h-[40rem]' : 'w-[50rem] h-[30rem]'}`}>
+      <main className={`relative transition-[width] duration-300 px-4 ${isEnd ? 'w-full h-[40rem]' : 'w-full md:max-w-[60rem] h-[30rem]'}`}>
         <Scene
           lyric={lyric}
           setLyric={setLyric}

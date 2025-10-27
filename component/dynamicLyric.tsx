@@ -8,7 +8,8 @@ export default function DynamicLyric({
   lyric: LyricsProp[];
   current: string | null;
 }) {
-  console.log('current from dynamicLyric', current)
+  // console.log('current from dynamicLyric', current)
+  
   return (
     <div className="absolute w-[50rem] flex flex-col items-center text-center justify-center h-screen overflow-y-scroll pointer-events-none">{lyric.map(l => (
       <Fragment

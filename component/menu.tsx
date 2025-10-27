@@ -8,7 +8,7 @@ export default function Menu({
   resetGame: () => void;
 }) {
   return (
-    <div className='flex flex-col items-end gap-2 absolute mt-3 h-auto w-auto right-0 text-sm font-mono'>
+    <div className='flex flex-col items-end gap-2 absolute mt-3 h-auto w-auto justify-self-end text-sm font-mono'>
       <button
         className={`h-6 flex items-center underline underline-offset-4 hover:no-underline hover:cursor-pointer ${isOpen && 'bg-white text-black'}`}
         onClick={() => setIsOpen(!isOpen)}

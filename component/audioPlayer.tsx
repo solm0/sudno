@@ -67,13 +67,13 @@ export default function AudioPlayer({
       <audio ref={audioRef} src={src} preload="auto" />
 
       {!hasStarted ? (
-        <div className="absolute bg-black w-full h-full top-0 left-0 flex items-center justify-center">
+        <div className="absolute bg-black border border-white w-[calc(100%-2rem)] h-full top-0 left-1/2 -translate-x-1/2 flex items-center justify-center z-80">
           <button
             onClick={() => {
               togglePlay();
               setHasStarted(true);
             }}
-            className="underline underline-offset-4 hover:no-underline text-lg"
+            className="underline underline-offset-4 hover:no-underline text-2xl"
           >
             Play
           </button>

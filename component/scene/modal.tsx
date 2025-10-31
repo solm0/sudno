@@ -29,12 +29,14 @@ export default function Modal({
           onClick={() => markFound(modalData.name)}
           disabled={modalData.isFound}
         >
-          {modalData.isFound ? 'saved' : 'save'}
+          {modalData.isFound ? '이미 수집됨' : '수집하기'}
         </button>
         <button
-          className="px-4 py-0.5 border border-white hover:bg-white hover:text-black"
+          className={`px-4 py-0.5 border border-white hover:bg-white hover:text-black opacity-60 ${modalData.isFound ? 'opacity-100' : 'opacity-60'}`}
           onClick={() => setLyric(null)}
-        >close</button>
+        >
+          닫기
+        </button>
       </div>
     </div>
   )

@@ -47,7 +47,7 @@ export default function AudioPlayer({
         await audio.play();
         setPlaying(true);
       } catch (err) {
-        alert("Safari에서 지원되지 않는 기능입니다😭");
+        alert("음악 재생이 Safari에서 안됩니다😭");
       }
     } else {
       audio.pause();
@@ -75,13 +75,13 @@ export default function AudioPlayer({
             }}
             className="underline underline-offset-4 hover:no-underline text-2xl"
           >
-            Play
+            시작하기
           </button>
         </div>
       ): (
         <div className="absolute mt-3 text-xs flex gap-2 items-center font-mono">
           <button onClick={togglePlay} className="underline underline-offset-4 hover:no-underline">
-            {playing ? "Pause" : "Play"}
+            {playing ? "일시정지" : "재생"}
           </button>
 
           <span>{formatTime(current)}</span>
@@ -89,7 +89,7 @@ export default function AudioPlayer({
           <span>2:22</span>
 
           <button onClick={toggleMute} className="underline underline-offset-4 hover:no-underline">
-            {muted ? "Unmute" : "Mute"}
+            {muted ? "음소거 해제" : "음소거"}
           </button>
         </div>
       )}

@@ -19,7 +19,7 @@ export default function About({setAbout}: {setAbout: (about: boolean) => void}) 
         </>
       ): (
         <>
-          <h2>Credits</h2>
+          <h2>크레딧</h2>
           <p>침대 3D 모델: "Metal Bed" (https://skfb.ly/o99WT) by teofaron is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).</p>
           <p>창문 3D 모델: "Broken Window 05" (https://skfb.ly/6U8ns) by Game Ready Art is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).</p>
           <p>바닥 텍스쳐 이미지: Wood Planks Grey(https://polyhaven.com/a/wood_planks_grey) by Rob Tuytel</p>
@@ -32,12 +32,20 @@ export default function About({setAbout}: {setAbout: (about: boolean) => void}) 
           <p>벽 텍스쳐 이미지: Painted Plaster Wall(https://polyhaven.com/a/painted_plaster_wall) by Amal Kumar</p>
         </>
       )}
-      <button
-        onClick={(e) => {e.stopPropagation(); setContent(!content)}}
-        className="px-4 py-0.5 border border-white hover:bg-white hover:text-black"
-      >
-        {content ? 'credit' : 'about' }
-      </button>
+      <div className="flex gap-4">
+        <button
+          onClick={(e) => {e.stopPropagation(); setContent(!content)}}
+          className="px-4 py-0.5 border border-white hover:bg-white hover:text-black opacity-60"
+        >
+          {content ? '크레딧' : '대해서' }
+        </button>
+        <button
+          onClick={() => setAbout(false)}
+          className="px-4 py-0.5 border border-white hover:bg-white hover:text-black"
+        >
+          닫기
+        </button>
+      </div>
     </div>
   )
 }

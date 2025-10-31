@@ -22,7 +22,7 @@ export default function Gauge({
 
   return (
     <div className="absolute -top-6 w-auto h-auto flex items-center gap-3 text-xs font-mono">
-      <p className="text-white">{Math.floor(percentage)}%</p>
+      <p className="text-white">가사 완성도: {Math.floor(percentage)}%</p>
       <div className="w-36 h-3 border border-white rounded-full flex items-start overflow-hidden">
         <div
           className="h-full bg-white"
